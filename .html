@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marksheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .grade {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Marksheet</h1>
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+        </tr>
+        <tr>
+            <td>Subject 1</td>
+            <td>95</td>
+        </tr>
+        <tr>
+            <td>Subject 2</td>
+            <td>85</td>
+        </tr>
+        <tr>
+            <td>Subject 3</td>
+            <td>75</td>
+        </tr>
+        <tr>
+            <td>Subject 4</td>
+            <td>65</td>
+        </tr>
+    </table>
+    <h2>Percentage: <span id="percentage"></span></h2>
+    <h2>Grade: <span id="grade"></span></h2>
+
+    <script>
+        // Calculate percentage
+        var marks = [95, 85, 75, 65];
+        var totalMarks = marks.reduce((a, b) => a + b, 0);
+        var percentage = (totalMarks / (marks.length * 100)) * 100;
+
+        // Display percentage
+        document.getElementById("percentage").innerText = percentage.toFixed(2) + "%";
+
+        // Determine grade
+        var grade = "";
+        if (percentage >= 90) {
+            grade = "A+";
+        } else if (percentage >= 80) {
+            grade = "A";
+        } else if (percentage >= 70) {
+            grade = "B";
+        } else {
+            grade = "Better luck next time";
+        }
+
+        // Display grade
+        document.getElementById("grade").innerText = grade;
+    </script>
+</body>
+</html>
